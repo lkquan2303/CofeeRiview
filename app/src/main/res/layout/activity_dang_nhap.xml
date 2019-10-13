@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".ViewController.DangNhap">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="95dp"
+        android:layout_marginRight="95dp"
+        android:layout_marginBottom="577dp"
+        android:backgroundTint="@color/text"
+        android:text="MyFeeling"
+        android:textColor="@color/text"
+        android:textSize="60dp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btndangnhap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:layout_marginBottom="340dp"
+        android:background="@drawable/radionbutton"
+        android:drawableLeft="@drawable/login"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:text="Đăng Nhập" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btfb"
+        android:layout_width="293dp"
+        android:layout_height="106dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginBottom="187dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btgoogle"
+        android:layout_width="297dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginBottom="241dp"
+
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+    </com.google.android.gms.common.SignInButton>
+
+    <Button
+        android:id="@+id/btchuyendangky"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="65dp"
+        android:layout_marginRight="65dp"
+        android:layout_marginBottom="123dp"
+        android:background="@drawable/radionbutton"
+        android:text="Chưa có tài khoản, đăng ký ngay" />
+
+    <EditText
+        android:id="@+id/edemail"
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="492dp"
+        android:backgroundTint="@color/text"
+        android:drawableLeft="@drawable/user"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text" />
+
+    <EditText
+        android:id="@+id/edmk"
+        android:layout_width="267dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="418dp"
+        android:backgroundTint="@color/text"
+        android:drawableLeft="@drawable/pass"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Mật Khẩu"
+        android:inputType="textPassword"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text" />
+
+    <Button
+        android:id="@+id/btquenmk"
+        android:layout_width="173dp"
+        android:layout_height="38dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="115dp"
+        android:layout_marginRight="115dp"
+        android:layout_marginBottom="47dp"
+        android:background="@null"
+        android:text="Quên mật khẩu" />
+
+    <TextView
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:id="@+id/tvfaildn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="394dp" />
+
+
+</RelativeLayout>

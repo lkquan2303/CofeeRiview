@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".ViewController.BucBoi">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="147dp"
+        android:layout_height="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="430dp"
+        app:srcCompat="@drawable/angry" />
+
+    <EditText
+        android:id="@+id/edcontentbucboi"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="349dp"
+        android:ems="10"
+        android:hint="Nhập cảm xúc của bạn ở đây"
+        android:backgroundTint="@color/text"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/text"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btsavebucboi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="243dp"
+        android:background="@drawable/radionbutton"
+        android:text="Xong" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="600dp"
+        android:gravity="center"
+        android:text="Bạn đang bực bội gì thế, viết vào đây nào!!"
+        android:textColor="@color/text"
+        android:textSize="25sp" />
+    <TextClock
+        android:id="@+id/textclock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="317dp"
+        android:textSize="16sp"
+        android:format12Hour="k:m:sa"
+        android:gravity="center"
+        android:format24Hour="E, d-M-yyyy k:m:sa" />
+</RelativeLayout>

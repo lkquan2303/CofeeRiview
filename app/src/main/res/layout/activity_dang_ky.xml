@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".ViewController.DangKy">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="113dp"
+        android:layout_marginRight="113dp"
+        android:layout_marginBottom="577dp"
+        android:text="Đăng Ký"
+        android:textColor="@color/text"
+        android:textSize="50sp" />
+
+    <EditText
+        android:id="@+id/edtdn"
+        android:layout_width="266dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginRight="71dp"
+        android:layout_marginBottom="447dp"
+        android:backgroundTint="@color/text"
+        android:drawableLeft="@drawable/user"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="example@gmail.com"
+        android:inputType="textEmailAddress|textEmailSubject"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
+        android:textStyle="italic" />
+
+    <EditText
+        android:id="@+id/edmk"
+        android:layout_width="267dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginBottom="373dp"
+        android:backgroundTint="@color/text"
+        android:drawableLeft="@drawable/pass"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Mật khẩu"
+        android:textStyle="italic"
+        android:inputType="textPassword"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text" />
+
+    <EditText
+        android:id="@+id/ednhaplaimk"
+        android:layout_width="267dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginRight="71dp"
+        android:layout_marginBottom="309dp"
+        android:backgroundTint="@color/text"
+        android:drawableLeft="@drawable/pass"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Nhập lại mật khẩu"
+        android:textStyle="italic"
+        android:inputType="textPassword"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text" />
+
+    <Button
+        android:id="@+id/btdk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="114dp"
+        android:layout_marginRight="114dp"
+        android:layout_marginBottom="222dp"
+        android:background="@drawable/radionbutton"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:text="Đăng Ký" />
+
+    <TextView
+        android:id="@+id/tvfail"
+        android:textColor="@color/red"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-4dp"
+        android:layout_marginBottom="279dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="126dp"
+        android:layout_marginBottom="355dp"
+        android:text="Mật khẩu ít nhất 6 ký tự" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="138dp"
+        android:layout_marginBottom="429dp"
+        android:text="Email ít nhất 4 ký tự" />
+
+</RelativeLayout>

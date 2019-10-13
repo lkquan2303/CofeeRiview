@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "678287773070",
+    "firebase_url": "https://yasou-656a6.firebaseio.com",
+    "project_id": "yasou-656a6",
+    "storage_bucket": "yasou-656a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678287773070:android:732e306b279c0a31",
+        "android_client_info": {
+          "package_name": "com.example.coffereview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678287773070-1qr2upl36s1ee6jvtd9r5jl8l2mpuppc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.coffereview",
+            "certificate_hash": "ffe82c755d17f098d7d314ea699d745b0e963471"
+          }
+        },
+        {
+          "client_id": "678287773070-ksvkgskslhgccvoati4lop916mb4dfdd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa9Y7HV44QdaEAWvGa1P-2GS4D7jjkFw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678287773070-ksvkgskslhgccvoati4lop916mb4dfdd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

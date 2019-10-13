@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".ViewController.Setting">
+
+    <Button
+        android:id="@+id/btdoimk"
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="581dp"
+        android:background="@drawable/radionbutton"
+        android:text="Thiết lập lại mật khẩu"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btcapnhat"
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="500dp"
+        android:background="@drawable/radionbutton"
+        android:text="Thông tin cá nhân"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btlogout"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="108dp"
+        android:background="@drawable/radionbutton"
+        android:text="Đăng xuất" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="46dp"
+        android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="350dp"
+        android:layout_marginBottom="103dp"
+        app:srcCompat="@drawable/logout1" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="46dp"
+        android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="355dp"
+        android:layout_marginBottom="579dp"
+        app:srcCompat="@drawable/lock" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="46dp"
+        android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="353dp"
+        android:layout_marginBottom="499dp"
+        app:srcCompat="@drawable/update2" />
+
+    <ImageButton
+        android:id="@+id/btstory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="342dp"
+        android:layout_marginBottom="39dp"
+        android:background="@null"
+        app:srcCompat="@drawable/agenda" />
+
+    <ImageButton
+        android:id="@+id/btmore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="36dp"
+        android:background="@null"
+        app:srcCompat="@drawable/m2" />
+
+    <ImageButton
+        android:id="@+id/btnthongke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="257dp"
+        android:layout_marginBottom="39dp"
+        android:background="@null"
+        app:srcCompat="@drawable/layers" />
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="347dp"
+        android:layout_marginBottom="12dp"
+        android:text="Thêm" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="252dp"
+        android:layout_marginBottom="13dp"
+        android:text="Thống kê" />
+
+    <TextView
+        android:id="@+id/textView101"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="12dp"
+        android:text="Cài đặt" />
+    <ImageButton
+        android:id="@+id/btnngay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="35dp"
+        android:background="@null"
+        app:srcCompat="@drawable/lich" />
+
+    <TextView
+        android:id="@+id/textView102"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="10dp"
+        android:text="Xem ngày" />
+
+    <ImageButton
+        android:id="@+id/btnplan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="35dp"
+        android:background="@null"
+        app:srcCompat="@drawable/blueprint" />
+
+    <TextView
+        android:id="@+id/textView1012"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="12dp"
+        android:text="Kế hoạch" />
+
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CoffeReview</string>
+    <string name="Version">Version</string>
+    <string name="facebook_app_id">630340700789012</string>
+    <string name="fb_login_protocol_scheme">fb630340700789012</string>
+    <string name="saitaikhoan">Sai tài khoản hoặc mật khẩu</string>
+
+</resources>

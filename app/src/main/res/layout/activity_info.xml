@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context=".ViewController.Info">
+
+
+    <EditText
+        android:id="@+id/ten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="545dp"
+        android:backgroundTint="@color/text"
+        android:ems="10"
+        android:hint="Nhập tên của bạn"
+        android:inputType="textPersonName"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
+        android:textStyle="italic" />
+
+    <EditText
+        android:id="@+id/chieucao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginBottom="358dp"
+        android:backgroundTint="@color/text"
+        android:ems="10"
+        android:hint="Nhập chiều cao của bạn(cm)"
+        android:inputType="number"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
+        android:textStyle="italic" />
+
+    <EditText
+        android:id="@+id/cannang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="454dp"
+        android:backgroundTint="@color/text"
+        android:ems="10"
+        android:hint="Nhập cân nặng của bạn"
+        android:inputType="number"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btupdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="164dp"
+        android:layout_marginRight="164dp"
+        android:layout_marginBottom="271dp"
+        android:background="@drawable/radionbutton"
+        android:text="Cập nhật " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="270dp"
+        android:layout_marginBottom="555dp"
+        android:text="Tên của bạn: "
+        android:textColor="@color/text"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="218dp"
+        android:layout_marginBottom="371dp"
+        android:text="Chiều cao của bạn: "
+        android:textColor="@color/text"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="237dp"
+        android:layout_marginBottom="464dp"
+        android:text="Cân nặng của bạn: "
+        android:textColor="@color/text"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>
