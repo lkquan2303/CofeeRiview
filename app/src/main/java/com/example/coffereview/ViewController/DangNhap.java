@@ -8,7 +8,12 @@ import com.facebook.FacebookSdk;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -40,38 +45,37 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DangNhap extends AppCompatActivity implements  View.OnClickListener, FirebaseAuth.AuthStateListener, GoogleApiClient.OnConnectionFailedListener {
-    Button dk;
-    Button btndangnhap;
-    LoginButton btfb;
-    SignInButton btgoogle;
-    Button btquenmk;
-    TextView tvfaildn;
+    Button btdngoogle,btfb1,btndangnhap;
+    TextView tvfaildn,tvqmk,tvdkm;
     EditText taikhoandangnhap, matkhaudangnhap;
     ProgressDialog progressDialog;
     GoogleApiClient apiClient;
     FirebaseFirestore db;
+    List<String> permissionFacebook = Arrays.asList("email","public_profile");
     public static int codegoogle = 1000;
     // Check xem dn bang Google hay  FB
     public static int kiemtradangnhap = 0;
     FirebaseAuth firebaseAuth;
     LoginManager loginManager;
-    CallbackManager callbackManager;
+    CallbackManager mCallbackFacebook;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 //        LoginManager.getInstance().logOut();
 //       FirebaseAuth.getInstance().signOut();
-
+        mCallbackFacebook = CallbackManager.Factory.create();
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_dang_nhap);
         db = FirebaseFirestore.getInstance();
-        btquenmk = findViewById(R.id.btquenmk);
-        btquenmk.setOnClickListener(this);
-        btgoogle  = findViewById(R.id.btgoogle);
         btndangnhap = findViewById(R.id.btndangnhap);
         progressDialog = new ProgressDialog(this);
         taikhoandangnhap = findViewById(R.id.edemail);
@@ -80,42 +84,14 @@ public class DangNhap extends AppCompatActivity implements  View.OnClickListener
         loginManager = LoginManager.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         tvfaildn = findViewById(R.id.tvfaildn);
-        callbackManager = CallbackManager.Factory.create();
-        btfb = findViewById(R.id.btfb);
-        btfb.setReadPermissions("email","public_profile");
-   //     btndangnhap.setOnClickListener(this);
-        dk = findViewById(R.id.btchuyendangky);
-        dk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DangNhap.this, DangKy.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        btfb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            // Phai khai bao trong ACtivityResuil moi kich hoat dong nay
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                // Đăng nhập thành công
-                kiemtradangnhap = 2;
-                String tokenId = loginResult.getAccessToken().getToken();
-                KiemTraDangNhap(null,tokenId);
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-
-
-            }
-        });
-        btgoogle.setOnClickListener(this);
-        //2.
+        btfb1 = findViewById(R.id.btfb1);
+        btdngoogle = findViewById(R.id.btdngoogle);
+        btdngoogle.setOnClickListener(this);
+        tvqmk = findViewById(R.id.tvqmk);
+        tvqmk.setOnClickListener(this);
+        tvdkm = findViewById(R.id.tvdkm);
+        tvdkm.setOnClickListener(this);
+        btfb1.setOnClickListener(this);
         getinfor();
     }
     // Hàm lấy thông tin từ GOOGLE
@@ -160,7 +136,9 @@ public class DangNhap extends AppCompatActivity implements  View.OnClickListener
         int id = view.getId();
         String userid = FirebaseAuth.getInstance().getUid();
         switch (id){
-            case R.id.btgoogle:
+            case R.id.btdngoogle:
+                    progressDialog.setMessage("Đang xử lý, chờ xíu");
+                    progressDialog.show();
                     logingoogle(apiClient);
                 break;
             case R.id.btndangnhap:
@@ -181,9 +159,18 @@ public class DangNhap extends AppCompatActivity implements  View.OnClickListener
                     tvfaildn.setText("Email Hoặc Mật Khẩu Không Hợp Lệ");
                 }
                 break;
-            case R.id.btquenmk:
+            case R.id.tvqmk:
                 quenmatkhau();
                 break;
+            case  R.id.btfb1:
+                DangNhapFacebook();
+                break;
+            case R.id.tvdkm:
+                Intent intent = new Intent(DangNhap.this, DangKy.class);
+                startActivity(intent);
+                finish();
+                break;
+
         }
     }
     //Mo giao dien dang nhap google
@@ -211,14 +198,14 @@ public class DangNhap extends AppCompatActivity implements  View.OnClickListener
                 GoogleSignInResult googleSignInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
                 GoogleSignInAccount account = googleSignInResult.getSignInAccount();
                 String tokenid = account.getIdToken();
-                KiemTraDangNhap(tokenid,null);
+                KiemTraDangNhap(tokenid);
             }
         }else
         {
-            callbackManager.onActivityResult(requestCode, resultCode,data);
+            mCallbackFacebook.onActivityResult(requestCode, resultCode,data);
         }
     }
-    private void KiemTraDangNhap(String tokenid, String tokenId)
+    private void KiemTraDangNhap(String tokenid)
     {
         if(kiemtradangnhap == 1)
         {
@@ -238,7 +225,7 @@ public class DangNhap extends AppCompatActivity implements  View.OnClickListener
         }else if(kiemtradangnhap == 2)
         {
 
-                AuthCredential credential = FacebookAuthProvider.getCredential(tokenId);
+                AuthCredential credential = FacebookAuthProvider.getCredential(tokenid);
                 firebaseAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -290,5 +277,26 @@ public class DangNhap extends AppCompatActivity implements  View.OnClickListener
         db.collection("infomation")
                 .document(id).set(data);
 
+    }
+    private void DangNhapFacebook(){
+        loginManager.logInWithReadPermissions(this,permissionFacebook);
+        loginManager.registerCallback( mCallbackFacebook, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                kiemtradangnhap = 2;
+                String tokenID = loginResult.getAccessToken().getToken();
+                KiemTraDangNhap(tokenID);
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
     }
 }

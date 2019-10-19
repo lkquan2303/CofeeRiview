@@ -1,18 +1,18 @@
 package com.example.coffereview.Model;
 
 public class contentPlan {
-    String id_content, work, time, status, id;
+    String id_content, work, time, status, id_plan;
 
     public contentPlan(){
 
     }
 
-    public contentPlan(String id_content, String work, String time, String status, String id){
+    public contentPlan(String id_content, String work, String time, String status, String id_plan){
         this.id_content = id_content;
         this.work = work;
         this.time = time;
         this.status = status;
-        this.id = id;
+        this.id_plan = id_plan;
     }
 
     public String getId_content() {
@@ -47,11 +47,11 @@ public class contentPlan {
         this.status = status;
     }
 
-    public String getId() {
-        return id;
+    public String getId_plan() {
+        return id_plan;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String id_plan) {
+        this.id_plan = id_plan;
     }
 }

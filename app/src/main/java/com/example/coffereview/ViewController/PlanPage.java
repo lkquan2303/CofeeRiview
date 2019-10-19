@@ -3,8 +3,11 @@ package com.example.coffereview.ViewController;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.coffereview.Adapter.AdapterPlan;
@@ -27,18 +30,24 @@ public class PlanPage extends AppCompatActivity {
     AdapterPlan adapterPlan;
     List<Plans> plansList;
     ListView listplandata;
+    Button back;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_page);
-
+        back = findViewById(R.id.back);
         listplandata = findViewById(R.id.listdataplan);
         plansList = new ArrayList<>();
         adapterPlan = new AdapterPlan(this, R.layout.planlist, plansList);
         listplandata.setAdapter(adapterPlan);
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PlanPage.this, PlanDetails.class));
+            }
+        });
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid_user = user.getUid();
 

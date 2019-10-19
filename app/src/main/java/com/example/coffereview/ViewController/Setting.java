@@ -163,22 +163,20 @@ public class Setting extends AppCompatActivity {
     {
         FirebaseUser uid_user = FirebaseAuth.getInstance().getCurrentUser();
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Log.d("ID", "Id + " + id);
-        DocumentReference docRef = db.collection("infomation").document(id);
+        DocumentReference docRef = db.collection("informations").document(id);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        String pchieucao = (String) document.getData().get("chieucao");
-                        String pcannang = (String) document.getData().get("cannag");
-                        String pten = (String) document.getData().get("ten");
- //                       Log.d("Tag", "DocumentSnapshot data: " + document.getData().get("cannag"));
+                        String pchieucao = (String) document.getData().get("height");
+                        String pcannang = (String) document.getData().get("weight");
+                        String pten = (String) document.getData().get("name");
                         Intent intent = new Intent(Setting.this, Info.class);
-                        intent.putExtra("cannang", pcannang);
-                        intent.putExtra("chieucao", pchieucao);
-                        intent.putExtra("ten", pten);
+                        intent.putExtra("weight", pcannang);
+                        intent.putExtra("height", pchieucao);
+                        intent.putExtra("name", pten);
                         startActivity(intent);
                     } else {
                         Log.d("Tag", "No such document");

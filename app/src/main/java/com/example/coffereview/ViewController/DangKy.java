@@ -125,10 +125,10 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
     {
         Map<String, Object> data = new HashMap<>();
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        data.put("ten", "");
-        data.put("chieucao", "");
-        data.put("cannag", "");
-        db.collection("infomation")
+        data.put("name", "");
+        data.put("height", "");
+        data.put("weight", "");
+        db.collection("informations")
                 .document(id).set(data);
 
     }

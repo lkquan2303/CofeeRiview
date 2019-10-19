@@ -7,10 +7,31 @@
     android:background="@color/bg"
     tools:context=".ViewController.PlanPage">
 
+
+
+    <Button
+
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF"
+        android:drawableLeft="@drawable/leftarrow"
+        android:paddingLeft="20dp"
+        android:paddingRight="250dp"
+        android:text="Thêm kế hoạch"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
     <ListView
         android:id="@+id/listdataplan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="152dp" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/back"
+        tools:layout_editor_absoluteX="101dp" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,15 +15,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="73dp"
-        android:layout_marginRight="73dp"
-        android:layout_marginBottom="536dp"
-        android:text="MyFeeling"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="578dp"
+        android:backgroundTint="@color/text"
+        android:text="PERSONAL DIARY"
         android:textColor="@color/text"
-        android:textSize="60dp"
-
+        android:textSize="45dp"
         android:textStyle="italic" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -15,7 +15,8 @@
         android:layout_marginBottom="445dp"
         android:backgroundTint="@color/text"
         android:ems="10"
-        android:hint="Nhập kế hoạch của bạn tại đây"
+        android:gravity="center"
+        android:hint="Nhập kế hoạch của bạn "
         android:inputType="textPersonName"
         android:textColor="@color/text"
         android:textSize="30sp"
@@ -23,6 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btsave"
         android:layout_width="146dp"
         android:layout_height="66dp"
@@ -35,6 +37,7 @@
         android:textSize="20sp" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/bttime"
         android:layout_width="67dp"
         android:layout_height="66dp"
@@ -62,13 +65,14 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btnhienthikehoach"
         android:layout_width="316dp"
         android:layout_height="63dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="149dp"
         android:background="@drawable/radionbutton"
         android:text="Xem kế hoạch"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,19 +80,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.732" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="335dp"
-        android:layout_marginBottom="149dp"
-        android:src="@drawable/plan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
-        app:layout_constraintStart_toStartOf="parent" />
     <ImageButton
         android:id="@+id/btstory"
         android:layout_width="wrap_content"
@@ -170,7 +161,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="10dp"
-        android:text="Xem ngày" />
+        android:text="Xem lịch" />
 
     <ImageButton
         android:id="@+id/btnplan"

@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class PostUpdate extends AppCompatActivity {
 
     EditText textContent;
-    Button btnUpdate;
+    Button btnUpdate,back;
     String pid, pcontent;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -27,10 +27,15 @@ public class PostUpdate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_update);
-
+        back = findViewById(R.id.back);
         textContent = findViewById(R.id.textContent);
         btnUpdate = findViewById(R.id.btnUpdate);
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PostUpdate.this, postpage.class));
+            }
+        });
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             // lấy dữ liệu

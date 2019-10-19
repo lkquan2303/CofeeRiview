@@ -18,7 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class EditDetailsPlan extends AppCompatActivity {
     EditText edwork;
-    Button btsave;
+    Button btsave,back;
     String id_plan, id_content, work;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
@@ -27,12 +27,18 @@ public class EditDetailsPlan extends AppCompatActivity {
         setContentView(R.layout.activity_edit_details_plan);
         edwork = findViewById(R.id.edwork);
         btsave = findViewById(R.id.btsave);
-
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(EditDetailsPlan.this, PlanDetailPage.class));
+            }
+        });
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             work = bundle.getString("work");
             id_content = bundle.getString("id_content");
-            id_plan = bundle.getString("id");
+            id_plan = bundle.getString("id_plan");
 
             edwork.setText(work);
         }

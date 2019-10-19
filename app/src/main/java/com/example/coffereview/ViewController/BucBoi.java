@@ -27,13 +27,20 @@ import java.util.UUID;
 public class BucBoi extends AppCompatActivity {
 
     EditText edcontent;
-    Button btsave;
+    Button btsave,back;
     FirebaseFirestore db;
     TextClock textClock;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buc_boi);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity( new Intent(BucBoi.this, Story.class));
+            }
+        });
         textClock = findViewById(R.id.textclock);
         String formatdate = "E, d-M-yyyy k:m:sa";
         textClock.setFormat12Hour(formatdate);
@@ -75,7 +82,7 @@ public class BucBoi extends AppCompatActivity {
         db.collection("posts").document(id).set(post).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(BucBoi.this, "Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BucBoi.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }

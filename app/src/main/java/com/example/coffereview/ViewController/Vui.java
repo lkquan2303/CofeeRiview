@@ -27,7 +27,7 @@ import java.util.UUID;
 
 public class Vui extends AppCompatActivity {
     EditText edcontent;
-    Button btsave;
+    Button btsave,back;
     FirebaseFirestore db;
     TextView tvcount1;
     int i ;
@@ -36,7 +36,14 @@ public class Vui extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vui);
-        textClock1 = findViewById(R.id.textclock1);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity( new Intent(Vui.this, Story.class));
+            }
+        });
+        textClock1 = findViewById(R.id.textclock);
         String formatdate = "E, d-M-yyyy k:m:sa";
         textClock1.setFormat12Hour(formatdate);
         textClock1.setFormat24Hour(formatdate);
@@ -77,7 +84,7 @@ public class Vui extends AppCompatActivity {
         db.collection("posts").document(id).set(post).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(Vui.this, "Success",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Vui.this, "Thêm thành công",Toast.LENGTH_SHORT).show();
             }
         });
     }

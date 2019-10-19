@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/ten"
-        android:layout_width="wrap_content"
+        android:layout_width="225dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -24,11 +24,11 @@
         android:inputType="textPersonName"
         android:textColor="@color/text"
         android:textColorHint="@color/text"
-        android:textStyle="italic" />
+         />
 
     <EditText
         android:id="@+id/chieucao"
-        android:layout_width="wrap_content"
+        android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -38,15 +38,15 @@
         android:layout_marginBottom="358dp"
         android:backgroundTint="@color/text"
         android:ems="10"
-        android:hint="Nhập chiều cao của bạn(cm)"
+        android:hint="Nhập chiều cao của bạn"
         android:inputType="number"
         android:textColor="@color/text"
         android:textColorHint="@color/text"
-        android:textStyle="italic" />
+        />
 
     <EditText
         android:id="@+id/cannang"
-        android:layout_width="wrap_content"
+        android:layout_width="231dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -60,20 +60,21 @@
         android:inputType="number"
         android:textColor="@color/text"
         android:textColorHint="@color/text"
-        android:textStyle="italic" />
+         />
 
     <Button
         android:id="@+id/btupdate"
-        android:layout_width="wrap_content"
+        android:layout_width="171dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="164dp"
-        android:layout_marginRight="164dp"
-        android:layout_marginBottom="271dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginRight="115dp"
+        android:layout_marginBottom="275dp"
         android:background="@drawable/radionbutton"
-        android:text="Cập nhật " />
+        android:text="Cập nhật "
+        android:textAllCaps="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,13 +88,13 @@
         android:textSize="20sp" />
 
     <TextView
-        android:layout_width="194dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="218dp"
-        android:layout_marginBottom="371dp"
-        android:text="Chiều cao của bạn: "
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="365dp"
+        android:text="Chiều cao: "
         android:textColor="@color/text"
         android:textSize="20sp" />
 
@@ -102,11 +103,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="237dp"
-        android:layout_marginBottom="464dp"
-        android:text="Cân nặng của bạn: "
+        android:layout_marginEnd="274dp"
+        android:layout_marginBottom="462dp"
+        android:text="Cân nặng : "
         android:textColor="@color/text"
         android:textSize="20sp" />
 
+    <TextView
+        android:gravity="center"
+        android:id="@+id/fail"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="326dp" />
 
 </RelativeLayout>

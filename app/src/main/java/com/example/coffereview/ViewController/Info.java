@@ -20,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class Info extends AppCompatActivity {
     EditText ten, cannang, chieucao;
     Button btupdate;
+    TextView tvfail;
     FirebaseFirestore db;
     TextView tvname;
     @Override
@@ -27,19 +28,20 @@ public class Info extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-
+        tvfail = findViewById(R.id.fail);
         ten = findViewById(R.id.ten);
         cannang = findViewById(R.id.cannang);
         chieucao = findViewById(R.id.chieucao);
         btupdate = findViewById(R.id.btupdate);
         Bundle bundle = getIntent().getExtras();
         Intent intent = getIntent();
-        String vchieucao = intent.getStringExtra("chieucao");
-        String vcannang = intent.getStringExtra("cannang");
-        String vten = intent.getStringExtra("ten");
+        final String vchieucao = intent.getStringExtra("height");
+        final String vcannang = intent.getStringExtra("weight");
+        final String vten = intent.getStringExtra("name");
         ten.setText(vten);
         cannang.setText(vcannang);
         chieucao.setText(vchieucao);
+
         btupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,29 +49,53 @@ public class Info extends AppCompatActivity {
                 String name = ten.getText().toString();
                 String weight = cannang.getText().toString();
                 String height = chieucao.getText().toString();
+                int cc = Integer.parseInt(vchieucao);
+                int cn = Integer.parseInt(vcannang);
+  //                if(vten.equals("2"))
+//                {
+//                    tvfail.setText("Chiều cao của bạn chỉ được từ 50 -> 300 cm");
+//                }
+//                if(name.equals("")|| height.equals("") || weight.equals("")  || cc <50 || cc >300 || cn >300 || cn < 1)
+////                if(cc <50 || cc >300)
+////                {
+////                    tvfail.setText("Chiều cao của bạn chỉ được từ 50 -> 300 cm");
+////                }
+////                else if(cn >300 || cn < 1)
+////                {
+////                    tvfail.setText("Cân nặng của bạn chỉ được từ 1 -> 300 kg");
+////                } else {
+//
+//                {
+//                 //   tvfail.setText("Chiều cao hoặc cân nặng của bạn không hợp lệ");
+//                } else
+//                {
+//
+                if(name.trim().equals("")|| height.trim().equals("") || weight.trim().equals("")  || cc <50 || cc >300 || cn >300 || cn < 1)
+                {
+                    tvfail.setText("Chiều cao, tên hoặc cân nặng của bạn không hợp lệ");
+                }else {
+                    String dc = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    db.collection("informations").document(dc).update("name", name).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    db.collection("informations").document(dc).update("weight", weight).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    db.collection("informations").document(dc).update("height", height).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
-                String dc = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                db.collection("infomation").document(dc).update("ten",name).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(Info.this, "Cập nhật thành công",Toast.LENGTH_SHORT).show();
-                    }
-                });
-                db.collection("infomation").document(dc).update("cannag",weight).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(Info.this, "Cập nhật thành công",Toast.LENGTH_SHORT).show();
-                    }
-                });
-                db.collection("infomation").document(dc).update("chieucao",height).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(Info.this, "Cập nhật thành công",Toast.LENGTH_SHORT).show();
-                    }
-                });
-                Intent intent = new Intent(Info.this, TrangChu.class);
-                startActivity(intent);
-                db.collection("infomation").document(dc).get();
+                    db.collection("informations").document(dc).get();
+                }
             }
         });
 

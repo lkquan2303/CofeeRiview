@@ -27,13 +27,20 @@ import java.util.UUID;
 public class BinhThuong extends AppCompatActivity {
 
     EditText edcontent;
-    Button btsave;
+    Button btsave,back;
     FirebaseFirestore db;
     TextClock textClock;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_binh_thuong);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity( new Intent(BinhThuong.this, Story.class));
+            }
+        });
         textClock = findViewById(R.id.textclock);
         String formatdate = "E, d-M-yyyy k:m:sa";
         textClock.setFormat12Hour(formatdate);
@@ -67,15 +74,12 @@ public class BinhThuong extends AppCompatActivity {
         String check[] = daytime.split("-");
         String time = check[1];
         String day = check[0];
-
         String feeling = "Bình thường";
-
         Post post = new Post(uid_user, id, content, feeling, time, day);
-
         db.collection("posts").document(id).set(post).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(BinhThuong.this, "Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BinhThuong.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }

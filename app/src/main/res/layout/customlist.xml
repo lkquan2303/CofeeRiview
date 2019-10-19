@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/bg"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/radionbutton"
+    android:layout_height="match_parent"
+   >
 
-    <TextView
-        android:id="@+id/txtngay"
+
+    <LinearLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="TextView"
-        android:textColor="@color/text"
-        android:textSize="20dp" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txttime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/text"
-        android:textSize="20dp" />
+        <TextView
 
-    <TextView
-        android:id="@+id/txtfeeling"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="TextView"
-        android:textColor="@color/text"
-        android:textSize="20dp" />
+            android:id="@+id/txtngay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/text"
+            android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/txtContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/text"
-        android:textSize="20dp" />
+        <TextView
+            android:id="@+id/txtContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/text"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txttime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/text"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txtfeeling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="TextView"
+            android:textColor="@color/text"
+            android:textSize="20dp" />
+    </LinearLayout>
+
 </LinearLayout>

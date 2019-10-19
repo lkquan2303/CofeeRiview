@@ -2,13 +2,14 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#FFFFFF</color>
-    <color name="bg">#D0F0FF</color>
-    <color name="text">#050505</color>
+    <color name="colorAccent">#000000</color>
+    <color name="bg">#D4E8EE</color>
+    <color name="text">#0A0A0A</color>
     <color name="text1">#000000</color>
     <color name="toolbar">#E384FF</color>
     <color name="radion">#FFFFFF</color>
     <color name="red">#FF0000</color>
+    <color name="tc">#75CE35</color>
 
 
 </resources>

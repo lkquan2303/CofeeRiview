@@ -115,7 +115,7 @@ public class Thongke extends AppCompatActivity implements OnChartValueSelectedLi
         List axisValues = new ArrayList();
 
 
-        Line line = new Line(yAxisValues).setColor(Color.parseColor("#9C27B0"));
+        Line line = new Line(yAxisValues).setColor(Color.parseColor("#000000"));
 
         for (int i = 0; i < axisData.length; i++) {
             axisValues.add(i, new AxisValue(i).setLabel(axisData[i]));
@@ -134,12 +134,12 @@ public class Thongke extends AppCompatActivity implements OnChartValueSelectedLi
         Axis axis = new Axis();
         axis.setValues(axisValues);
         axis.setTextSize(16);
-        axis.setTextColor(Color.parseColor("#03A9F4"));
+        axis.setTextColor(Color.parseColor("#000000"));
         data.setAxisXBottom(axis);
 
         Axis yAxis = new Axis();
         yAxis.setName("Tổng hợp cảm xúc của bạn");
-        yAxis.setTextColor(Color.parseColor("#03A9F4"));
+        yAxis.setTextColor(Color.parseColor("#000000"));
         yAxis.setTextSize(16);
         data.setAxisYLeft(yAxis);
 

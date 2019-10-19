@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:background="@drawable/radionbutton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
 
     <TextView
         android:id="@+id/txttime"
         android:textColor="@color/text"
         android:textSize="20dp"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
@@ -21,30 +23,29 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/txtstatus"
+        android:layout_width="match_parent"
         android:textColor="@color/text"
         android:textSize="20dp"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Đã hoàn thành hay chưa ? " />
 
-    <RadioGroup
-        android:id="@+id/rdgroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+
+
 
         <RadioButton
             android:id="@+id/rdhoanthanh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đã hoàn thành" />
+            android:text="Đã hoàn thành"
+            />
 
         <RadioButton
-            android:checked="true"
             android:id="@+id/rdchuahoanthanh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chưa hoàn thành" />
-    </RadioGroup>
+            android:text="Chưa hoàn thành"
+            />
+
+
 
 </LinearLayout>

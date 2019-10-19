@@ -8,6 +8,7 @@
     tools:context=".ViewController.Setting">
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btdoimk"
         android:layout_width="336dp"
         android:layout_height="wrap_content"
@@ -16,10 +17,11 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="581dp"
         android:background="@drawable/radionbutton"
-        android:text="Thiết lập lại mật khẩu"
+        android:text="Quên mật khẩu"
         android:textSize="20sp" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btcapnhat"
         android:layout_width="337dp"
         android:layout_height="wrap_content"
@@ -32,6 +34,7 @@
         android:textSize="20sp" />
 
     <Button
+        android:textAllCaps="false"
         android:id="@+id/btlogout"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
@@ -152,7 +155,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="10dp"
-        android:text="Xem ngày" />
+        android:text="Xem lịch" />
 
     <ImageButton
         android:id="@+id/btnplan"

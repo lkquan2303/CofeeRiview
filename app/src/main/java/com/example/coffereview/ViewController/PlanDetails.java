@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -38,7 +39,7 @@ public class PlanDetails extends AppCompatActivity {
     EditText edwork;
     String time;
     TextView txttime;
-
+    RadioButton rdchuahoanthanh;
     ImageButton btstory, btnthongke,btnngay,btnmore;
     // 1 biến lấy ngày ở đây
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -47,6 +48,7 @@ public class PlanDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_details);
+        rdchuahoanthanh = findViewById(R.id.rdchuahoanthanh);
 
         btstory = findViewById(R.id.btstory);
         btnthongke = findViewById(R.id.btnthongke);
@@ -134,28 +136,29 @@ public class PlanDetails extends AppCompatActivity {
         dateFormat.setLenient(false);
         Date today = new Date();
         String day = dateFormat.format(today);
+        String id_plan = uid_user + day;
+        Plans plans = new Plans(uid_user, id_plan, day);
 
-        Plans plans = new Plans(uid_user, day, day);
-
-        db.collection("plans").document(day).set(plans);
+        db.collection("plans").document(id_plan).set(plans);
     }
 
     private void savePlan(String thoigian){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id_content = UUID.randomUUID().toString();
         String work = edwork.getText().toString();
         // lấy thời gian
 //        DateFormat dateFormat = new SimpleDateFormat("hhmm");
 //        dateFormat.setLenient(false);
         String time = thoigian;
-        String status = "Đã hoàn thành hay chưa ?";
+        String status = "Chưa hoàn thành?";
         DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy");
         dateFormat.setLenient(false);
         Date today = new Date();
         String day = dateFormat.format(today);
+        String id_plan = user.getUid() + day;
+        contentPlan contentPlan = new contentPlan(id_content, work, time, status, id_plan);
 
-        contentPlan contentPlan = new contentPlan(id_content, work, time, status, day);
-
-        db.collection("plans").document(day)
+        db.collection("plans").document(id_plan)
                 .collection("content").document(id_content).set(contentPlan);
 
     }

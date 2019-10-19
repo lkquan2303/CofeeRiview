@@ -4,19 +4,25 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.coffereview.R;
 import com.example.coffereview.Model.Post;
-import com.example.coffereview.ViewController.PostDelete;
 import com.example.coffereview.ViewController.PostUpdate;
+import com.example.coffereview.ViewController.postpage;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -25,7 +31,7 @@ public class AdapterPost extends ArrayAdapter<Post> {
     int resource;
     List<Post>object;
     TextView txtContent,txtFeeling,txttime,txtngay;
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public AdapterPost(@NonNull Context context, int resource, @NonNull List<Post> objects) {
         super(context, resource, objects);
@@ -36,7 +42,7 @@ public class AdapterPost extends ArrayAdapter<Post> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(resource, parent, false);
         txtContent = view.findViewById(R.id.txtContent);
@@ -55,7 +61,7 @@ public class AdapterPost extends ArrayAdapter<Post> {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                String[] options = {"SỬA", "XÓA"};
+                String[] options = {"Sửa", "Xóa"};
                 builder.setItems(options, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -79,21 +85,25 @@ public class AdapterPost extends ArrayAdapter<Post> {
                         }
                         // chọn xoa
                         if(i == 1){
-                            // lay tat ca thong tin post
-                            String id = post.getId();
-                            String content = post.getContent();
-                            String feeling = post.getFeeling();
-                            String time = post.getTime();
-                            String day = post.getDay();
-                            //
-                            Intent intent = new Intent(context, PostDelete.class);
-                            intent.putExtra("pid", id);
-                            intent.putExtra("pcontent", content);
-                            intent.putExtra("pfeeling", feeling);
-                            intent.putExtra("ptime", time);
-                            intent.putExtra("pday", day);
-                            // chuyen qua trang xoa
-                            context.startActivity(intent);
+                            final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(context);
+                            String[] options = {"Chắc Chắn Xóa", "Hủy Bỏ"};
+                            builder.setItems(options, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    // chọn CÓ
+                                    if(i == 0){
+
+
+                                        String id =post.getId();
+
+                                                deletePost(id);
+
+                                    }
+
+
+                                }
+                            }).create().show();
+
                         }
                     }
                 }).create().show();
@@ -103,6 +113,23 @@ public class AdapterPost extends ArrayAdapter<Post> {
 
         return view;
     }
+    private void deletePost(String idPost){
+        db.collection("posts").document(idPost)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("TAG", "error", e);
+                    }
+                });
+    }
+
 
 }
 

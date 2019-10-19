@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.coffereview.R;
@@ -16,12 +17,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class QuenMatKhau extends AppCompatActivity implements View.OnClickListener {
     EditText edquenmk;
     Button btkhoiphuc;
     FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
-
+    TextView tvshowthanhcong,tvshowthatbai;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,38 +35,61 @@ public class QuenMatKhau extends AppCompatActivity implements View.OnClickListen
         progressBar = new ProgressBar(this);
         btkhoiphuc = findViewById(R.id.btkhoiphuc);
         btkhoiphuc.setOnClickListener(this);
+        tvshowthanhcong = findViewById(R.id.tvshowthanhcong);
+        tvshowthatbai = findViewById(R.id.tvshowthatbai);
 
     }
 
     @Override
     public void onClick(View view) {
+        String q = edquenmk.getText().toString();
+        String[] output =  q.split("\\@");
         int id = view.getId();
          switch (id)
          {
              case R.id.btkhoiphuc:
                  String email = edquenmk.getText().toString();
                  boolean checkmail = kiemtraemail(email);
-                 if(checkmail)
+                 if(isNum(output[1])){
+                     tvshowthatbai.setText("Email không hợp lệ");
+                 }else
+                 if(checkmail && output[1].equals("gmail.com"))
                  {
                     firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())
                             {
-                                Toast.makeText(QuenMatKhau.this,"Vui lòng kiểm tra email và làm theo hướng dẫn ",Toast.LENGTH_SHORT);
-                             //   Intent intent = new Intent(QuenMatKhau.this, DangNhap.class);
-                             //   startActivity(intent);
-                            }
+                                tvshowthatbai.setText("");
+                                tvshowthanhcong.setText("Vui lòng kiểm tra email và làm theo hướng dẫn");
+                            }else { tvshowthatbai.setText("Email chưa được đăng ký");}
                         }
                     });
                  }else {
-                     Toast.makeText(this, "Email không hợp lệ",Toast.LENGTH_SHORT);
+                     tvshowthatbai.setText("Email không hợp lệ");
                  }
                  break;
          }
     }
     private boolean kiemtraemail(String email)
     {
-        return   Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        String emailPattern =  "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        Pattern regex = Pattern.compile(emailPattern);
+        Matcher matcher = regex.matcher(email);
+        if(matcher.find())
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
+    }
+    public static boolean isNum(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isLetter(str.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 }

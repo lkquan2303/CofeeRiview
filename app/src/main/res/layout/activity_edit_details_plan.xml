@@ -9,29 +9,53 @@
 
     <EditText
         android:id="@+id/edwork"
-        android:layout_width="300dp"
-        android:layout_height="186dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="452dp"
+        android:layout_width="330dp"
+        android:layout_height="222dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="380dp"
+        android:background="@drawable/radionbutton"
         android:ems="10"
         android:gravity="center"
-        android:hint="Nhập kế hoạch của bạn muốn sửa tại đây"
+        android:hint="Mời bạn nhập thay đổi"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingBottom="160dp"
+        android:textColor="@color/text"
+        android:textColorHint="#94000000"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <Button
         android:id="@+id/btsave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
         android:layout_marginTop="568dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="340dp"
-        android:text="XONG"
         android:background="@drawable/radionbutton"
+        android:text="Cập nhật"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintVertical_bias="0.726" />
+
+    <Button
+
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="80dp"
+        android:background="#FFFFFF"
+        android:drawableLeft="@drawable/leftarrow"
+        android:paddingLeft="20dp"
+        android:paddingRight="250dp"
+        android:text="Sửa kế hoạch"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/edwork"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

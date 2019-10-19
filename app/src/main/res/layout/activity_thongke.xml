@@ -105,7 +105,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="10dp"
-        android:text="Xem ngày" />
+        android:text="Xem lịch" />
 
     <ImageButton
         android:id="@+id/btnplan"

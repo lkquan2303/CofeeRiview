@@ -27,10 +27,9 @@ import java.util.UUID;
 
 public class RatVui extends AppCompatActivity {
     EditText edcontentratvui;
-    Button btsaveratvui;
+    Button btsaveratvui,back;
     FirebaseFirestore db;
     TextClock textClock;
-    Dialog dialog;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +38,7 @@ public class RatVui extends AppCompatActivity {
         String formatdate = "E, d-M-yyyy k:m:sa";
         textClock.setFormat12Hour(formatdate);
         textClock.setFormat24Hour(formatdate);
+        back = findViewById(R.id.back);
         edcontentratvui = findViewById(R.id.edcontentratvui);
         btsaveratvui = findViewById(R.id.btsaveratvui);
         db = FirebaseFirestore.getInstance();
@@ -50,6 +50,12 @@ public class RatVui extends AppCompatActivity {
                 Intent intent = new Intent(RatVui.this, TrangChu.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity( new Intent(RatVui.this, Story.class));
             }
         });
     }
@@ -72,7 +78,7 @@ public class RatVui extends AppCompatActivity {
         db.collection("posts").document(id).set(post).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(RatVui.this, "Success",Toast.LENGTH_SHORT).show();
+                Toast.makeText(RatVui.this, "Thêm thành công",Toast.LENGTH_SHORT).show();
             }
         });
     }

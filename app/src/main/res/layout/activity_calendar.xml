@@ -9,13 +9,16 @@
 
     <DatePicker
         android:id="@+id/datepicker"
-        android:background="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="228dp" />
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="230dp"
+        android:background="@drawable/radionbutton" />
+
     <ImageButton
         android:id="@+id/btstory"
         android:layout_width="wrap_content"
@@ -96,7 +99,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="10dp"
-        android:text="Xem ngày" />
+        android:text="Xem lịch" />
 
     <ImageButton
         android:id="@+id/btnplan"
@@ -144,6 +147,7 @@
     <TextView
         android:id="@+id/tvratvui"
         android:textSize="16sp"
+        android:textColor="@color/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -170,12 +174,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="296dp"
+        android:textColor="@color/text"
         android:layout_marginBottom="184dp"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tvbinhthuong"
         android:textSize="16sp"
+        android:textColor="@color/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -186,6 +192,7 @@
     <TextView
         android:id="@+id/tvchannan"
         android:textSize="16sp"
+        android:textColor="@color/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -206,13 +213,14 @@
 
     <TextView
         android:id="@+id/tvbucboi"
-        android:textSize="16sp"
+        android:textColor="@color/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="43dp"
-        android:layout_marginBottom="183dp" />
+        android:layout_marginBottom="183dp"
+        android:textSize="16sp" />
 
     <TextView
 
@@ -225,5 +233,22 @@
         android:text="Bình thường"
         android:textColor="@color/text"
         android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="349dp"
+        android:layout_height="101dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="568dp"
+        android:background="@drawable/radionbutton"
+        android:gravity="center"
+        android:text="Cảm xúc hàng ngày "
+        android:textColor="@color/text"
+        android:textSize="24dp"
+        android:textStyle="italic" />
+
 
 </RelativeLayout>
