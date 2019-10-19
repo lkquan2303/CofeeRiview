@@ -8,8 +8,7 @@
     tools:context=".ViewController.RatVui">
 
 
-    <EditText
-        android:id="@+id/edcontentratvui"
+    <TextView
         android:layout_width="317dp"
         android:layout_height="257dp"
         android:layout_alignParentStart="true"
@@ -21,8 +20,8 @@
         android:background="@drawable/radionbutton"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
+        android:paddingTop="15dp"
         android:hint="Bạn đang nghĩ gì"
-        android:inputType="textPersonName"
         android:paddingLeft="100dp"
         android:paddingBottom="190dp"
         android:textColor="@color/text"
@@ -40,7 +39,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="193dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:text="Lưu nhật ký"
         android:textAllCaps="false"
         android:textColor="#A82B2323"
@@ -69,7 +68,7 @@
         android:format12Hour="k:m:sa"
         android:format24Hour="E, d-M-yyyy k:m:sa"
         android:gravity="center"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textSize="22sp" />
 
     <Button
@@ -86,6 +85,17 @@
         android:layout_marginTop="0dp"
         android:background="#FFFFFF" />
 
+    <EditText
+        android:id="@+id/edcontentratvui"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="312dp"
+        android:textColorHint="#94000000" />
 
 
 </RelativeLayout>

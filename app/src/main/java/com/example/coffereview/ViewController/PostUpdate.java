@@ -66,7 +66,7 @@ public class PostUpdate extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(PostUpdate.this, "Success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PostUpdate.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -76,6 +76,6 @@ public class PostUpdate extends AppCompatActivity {
                     }
                 });
         // chuyen ve trang hien thi khi update xong
-        startActivity(new Intent(PostUpdate.this, postpage.class));
+        startActivity(new Intent(PostUpdate.this, TrangChu.class));
     }
 }

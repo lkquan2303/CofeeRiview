@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,11 +35,13 @@ public class Setting extends AppCompatActivity {
     ImageButton btstory, btnthongke, btnngay, btnplan;
     FirebaseAuth myau;
     FirebaseFirestore db;
-
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        progressDialog = new ProgressDialog(this);
+
         db = FirebaseFirestore.getInstance();
         btstory = findViewById(R.id.btstory);
         btnthongke = findViewById(R.id.btnthongke);
@@ -161,6 +164,9 @@ public class Setting extends AppCompatActivity {
     }
     private void check()
     {
+
+        progressDialog.setMessage("Đang xử lý");
+        progressDialog.show();
         FirebaseUser uid_user = FirebaseAuth.getInstance().getCurrentUser();
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DocumentReference docRef = db.collection("informations").document(id);
@@ -178,11 +184,13 @@ public class Setting extends AppCompatActivity {
                         intent.putExtra("height", pchieucao);
                         intent.putExtra("name", pten);
                         startActivity(intent);
+                        progressDialog.dismiss();
                     } else {
                         Log.d("Tag", "No such document");
                     }
                 } else {
                     Log.d("Tag", "get failed with ", task.getException());
+                    Toast.makeText(Setting.this, "fail",Toast.LENGTH_SHORT).show();
                 }
 
             }

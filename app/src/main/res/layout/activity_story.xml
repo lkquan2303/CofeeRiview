@@ -16,7 +16,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="278dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:paddingLeft="10dp"
         android:paddingTop="20dp"
         android:text="Bạn đang cảm thấy như thế nào"

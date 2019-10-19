@@ -16,7 +16,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="581dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:text="Quên mật khẩu"
         android:textSize="20sp" />
 
@@ -29,7 +29,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="500dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:text="Thông tin cá nhân"
         android:textSize="20sp" />
 
@@ -42,7 +42,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="108dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:text="Đăng xuất" />
 
     <ImageView

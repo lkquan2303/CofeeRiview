@@ -32,7 +32,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="131dp"
         android:layout_marginBottom="242dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:text="Xong"
         android:textSize="20sp" />
 
@@ -45,7 +45,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="342dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:text="Thời gian"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -73,7 +73,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="51dp"
         android:layout_marginBottom="149dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:text="Xem kế hoạch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

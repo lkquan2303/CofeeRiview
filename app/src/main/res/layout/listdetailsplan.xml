@@ -29,9 +29,9 @@
         android:layout_height="wrap_content"
         android:text="Đã hoàn thành hay chưa ? " />
 
-
-
-
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
         <RadioButton
             android:id="@+id/rdhoanthanh"
             android:layout_width="match_parent"
@@ -45,6 +45,14 @@
             android:layout_height="wrap_content"
             android:text="Chưa hoàn thành"
             />
+
+
+    </RadioGroup>
+
+
+
+
+
 
 
 

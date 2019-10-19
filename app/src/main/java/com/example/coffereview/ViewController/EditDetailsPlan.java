@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,26 +35,28 @@ public class EditDetailsPlan extends AppCompatActivity {
                 startActivity(new Intent(EditDetailsPlan.this, PlanDetailPage.class));
             }
         });
-        Bundle bundle = getIntent().getExtras();
-        if(bundle != null){
-            work = bundle.getString("work");
-            id_content = bundle.getString("id_content");
-            id_plan = bundle.getString("id_plan");
+        Intent intent = getIntent();
+            work = intent.getStringExtra("work");
+        edwork.setText(work);
 
-            edwork.setText(work);
-        }
 
         btsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = getIntent().getExtras();
-                if(bundle != null){
-                    String idplan = id_plan;
-                    String idcontent = id_content;
-
-                    String workcontent = edwork.getText().toString();
-                    update(idplan, idcontent, workcontent);
-                }
+//                Bundle bundle = getIntent().getExtras();
+//                if(bundle != null){
+//                    String idplan = id_plan;
+//                    String idcontent = id_content;
+//                    String workcontent = edwork.getText().toString();
+//                    update(idplan, idcontent, workcontent);
+//
+//                }
+                Intent intent = getIntent();
+                 id_content = intent.getStringExtra("id_content");
+                 id_plan = intent.getStringExtra("id");
+                 String works = edwork.getText().toString();
+                 update(id_plan,id_content,works );
+//
             }
         });
 
@@ -66,6 +69,7 @@ public class EditDetailsPlan extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(EditDetailsPlan.this, "Đã Cập Nhật", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(EditDetailsPlan.this, PlanPage.class));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -74,6 +78,5 @@ public class EditDetailsPlan extends AppCompatActivity {
                         Toast.makeText(EditDetailsPlan.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-        startActivity(new Intent(EditDetailsPlan.this, PlanPage.class));
     }
 }

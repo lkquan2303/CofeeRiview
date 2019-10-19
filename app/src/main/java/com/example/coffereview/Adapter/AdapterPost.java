@@ -18,8 +18,9 @@ import androidx.annotation.Nullable;
 
 import com.example.coffereview.R;
 import com.example.coffereview.Model.Post;
+import com.example.coffereview.ViewController.PlanPage;
 import com.example.coffereview.ViewController.PostUpdate;
-import com.example.coffereview.ViewController.postpage;
+import com.example.coffereview.ViewController.Story;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -92,18 +93,11 @@ public class AdapterPost extends ArrayAdapter<Post> {
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     // chọn CÓ
                                     if(i == 0){
-
-
                                         String id =post.getId();
-
-                                                deletePost(id);
-
+                                        deletePost(id);
                                     }
-
-
                                 }
                             }).create().show();
-
                         }
                     }
                 }).create().show();
@@ -119,7 +113,8 @@ public class AdapterPost extends ArrayAdapter<Post> {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-
+//                        Intent intent = new Intent(context, Story.class);
+//                        context.startActivity(intent);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -129,7 +124,5 @@ public class AdapterPost extends ArrayAdapter<Post> {
                     }
                 });
     }
-
-
 }
 

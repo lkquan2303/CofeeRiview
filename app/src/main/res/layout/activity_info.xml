@@ -72,7 +72,7 @@
         android:layout_marginEnd="115dp"
         android:layout_marginRight="115dp"
         android:layout_marginBottom="275dp"
-        android:background="@drawable/radionbutton"
+        android:background="@drawable/radiusbutton"
         android:text="Cập nhật "
         android:textAllCaps="false" />
 

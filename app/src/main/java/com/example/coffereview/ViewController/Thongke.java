@@ -102,7 +102,7 @@ public class Thongke extends AppCompatActivity implements OnChartValueSelectedLi
         //Line
         Intent intent = getIntent();
         int valuerv = intent.getIntExtra("rv", 0);
-        int valuev = intent.getIntExtra("v", 0);
+        int valuev = intent.getIntExtra(  "v"  , 0);
         int valuecn = intent.getIntExtra("cn", 0);
         int valuebb = intent.getIntExtra("bb", 0);
         int valuebt = intent.getIntExtra("bt", 0);
@@ -164,41 +164,6 @@ public class Thongke extends AppCompatActivity implements OnChartValueSelectedLi
     }
 
 
-    //Line
-    private DataSet dataChart() {
-        LineData d = new LineData();
-        Intent intent = getIntent();
-        int valuerv = intent.getIntExtra("rv", 0);
-        int valuev = intent.getIntExtra("v", 0);
-        int valuecn = intent.getIntExtra("cn", 0);
-        int valuebb = intent.getIntExtra("bb", 0);
-        int valuebt = intent.getIntExtra("bt", 0);
-        int[] data = new int[]{valuerv,valuev,valuebt,valuecn,valuebb};
-        ArrayList<Entry> entries = new ArrayList<Entry>();
-
-        for (int index = 0; index < 5; index++) {
-            entries.add(new Entry(index, data[index]));
-        }
-
-        LineDataSet set = new LineDataSet(entries, "Tổng hợp cảm xúc của bạn");
-        set.setColor(Color.GREEN);
-        set.setLineWidth(2.5f);
-        set.setCircleColor(Color.GREEN);
-        set.setCircleRadius(5f);
-        set.setFillColor(Color.GREEN);
-        set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-        set.setDrawValues(true);
-        set.setValueTextSize(10f);
-        set.setValueTextColor(Color.GREEN);
-
-        set.setAxisDependency(YAxis.AxisDependency.LEFT);
-        d.addDataSet(set);
-
-        return set;
-
-    }
-
-
     //Pie
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void addDataset(PieChart pieChart) {
@@ -225,14 +190,14 @@ public class Thongke extends AppCompatActivity implements OnChartValueSelectedLi
             yEntries.add(new PieEntry(yData[i],i));
         }
 
-//        for (int i = 0; i < xData.length;i++){
-//            xEntrys.add(xData[i]);
-//        }
+        for (int i = 0; i < xData.length;i++){
+            xEntrys.add(xData[i]);
+        }
         PieDataSet pieDataSet = new PieDataSet(yEntries, "Diary ");
         pieDataSet.setSliceSpace(2);
         pieDataSet.setValueTextSize(12);
         ArrayList<Integer> colors = new ArrayList<>();
-        colors.add(Color.WHITE );
+        colors.add(Color.BLUE );
         colors.add(Color.GREEN);
         colors.add(Color.RED);
         colors.add(Color.GRAY);

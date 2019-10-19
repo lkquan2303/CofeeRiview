@@ -50,10 +50,13 @@ public class QuenMatKhau extends AppCompatActivity implements View.OnClickListen
              case R.id.btkhoiphuc:
                  String email = edquenmk.getText().toString();
                  boolean checkmail = kiemtraemail(email);
-                 if(isNum(output[1])){
+                 if(email.equals("")){
                      tvshowthatbai.setText("Email không hợp lệ");
                  }else
-                 if(checkmail && output[1].equals("gmail.com"))
+                 if(isNum(output[1])){
+                     tvshowthatbai.setText("Email không hợp lệ");
+                 }
+                 else if(checkmail && output[1].equals("gmail.com"))
                  {
                     firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

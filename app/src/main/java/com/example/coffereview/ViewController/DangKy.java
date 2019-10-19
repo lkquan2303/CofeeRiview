@@ -104,7 +104,6 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
         }
 
     }
-
     // Kiểm tra email có ký tự đặc biệt hay không
     private boolean checkmail(String mail)
     {
@@ -130,7 +129,6 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener {
         data.put("weight", "");
         db.collection("informations")
                 .document(id).set(data);
-
     }
     //Kiểm tra chuỗi có chứa ký tự số không
     public static boolean isNum(String str) {

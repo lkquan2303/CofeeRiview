@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Set;
 
 public class Info extends AppCompatActivity {
     EditText ten, cannang, chieucao;
@@ -33,7 +36,6 @@ public class Info extends AppCompatActivity {
         cannang = findViewById(R.id.cannang);
         chieucao = findViewById(R.id.chieucao);
         btupdate = findViewById(R.id.btupdate);
-        Bundle bundle = getIntent().getExtras();
         Intent intent = getIntent();
         final String vchieucao = intent.getStringExtra("height");
         final String vcannang = intent.getStringExtra("weight");
@@ -41,7 +43,6 @@ public class Info extends AppCompatActivity {
         ten.setText(vten);
         cannang.setText(vcannang);
         chieucao.setText(vchieucao);
-
         btupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,8 +50,43 @@ public class Info extends AppCompatActivity {
                 String name = ten.getText().toString();
                 String weight = cannang.getText().toString();
                 String height = chieucao.getText().toString();
-                int cc = Integer.parseInt(vchieucao);
-                int cn = Integer.parseInt(vcannang);
+
+                    if(name.trim().equals("")|| height.trim().equals("") || weight.trim().equals("")  )
+                    {
+                        tvfail.setText("Chiều cao, tên hoặc cân nặng của bạn không hợp lệ");
+                    }else {
+                        int cn = Integer.parseInt(weight);
+                        int cc = Integer.parseInt(height);
+                        if(cc <50 || cc >300 || cn >300 || cn < 1 )
+                        {
+                            tvfail.setText("Chiều cao hoặc cân nặng của bạn không hợp lệ");
+                        } else {
+                            String dc = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            db.collection("informations").document(dc).update("name", name).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            db.collection("informations").document(dc).update("weight", weight).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            db.collection("informations").document(dc).update("height", height).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                            db.collection("informations").document(dc).get();
+                            startActivity(new Intent(Info.this, Setting.class));
+                        }
+                    }
+
+
   //                if(vten.equals("2"))
 //                {
 //                    tvfail.setText("Chiều cao của bạn chỉ được từ 50 -> 300 cm");
@@ -70,32 +106,6 @@ public class Info extends AppCompatActivity {
 //                } else
 //                {
 //
-                if(name.trim().equals("")|| height.trim().equals("") || weight.trim().equals("")  || cc <50 || cc >300 || cn >300 || cn < 1)
-                {
-                    tvfail.setText("Chiều cao, tên hoặc cân nặng của bạn không hợp lệ");
-                }else {
-                    String dc = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    db.collection("informations").document(dc).update("name", name).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    db.collection("informations").document(dc).update("weight", weight).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    db.collection("informations").document(dc).update("height", height).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(Info.this, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                    db.collection("informations").document(dc).get();
-                }
             }
         });
 

@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 
 import com.example.coffereview.R;
 import com.example.coffereview.ViewController.EditDetailsPlan;
+import com.example.coffereview.ViewController.Info;
 import com.example.coffereview.ViewController.PlanDetailPage;
 import com.example.coffereview.Model.contentPlan;
 import com.example.coffereview.ViewController.PlanDetails;
@@ -61,7 +62,8 @@ public class AdapterDetailsPlan extends ArrayAdapter<contentPlan> {
         String status = contentPlan.getStatus();
         String id_content = contentPlan.getId_content();
         String id_plan = contentPlan.getId_plan();
-        if(status.equals("Chưa hoàn thành") )
+
+        if(status.equals("Chưa hoàn thành?") )
         {
             rdchuahoanthanh.setChecked(true);
             rdhoanthanh.setChecked(false);
@@ -80,7 +82,6 @@ public class AdapterDetailsPlan extends ArrayAdapter<contentPlan> {
                 update(id_plan, id_content, "Đã hoàn thành");
             }
         });
-
         rdchuahoanthanh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,13 +89,13 @@ public class AdapterDetailsPlan extends ArrayAdapter<contentPlan> {
                 rdhoanthanh.setChecked(false);
                 String id_content = contentPlan.getId_content();
                 String id_plan = contentPlan.getId_plan();
-                update(id_plan, id_content, "Chưa hoàn thành");
+                update(id_plan, id_content, "Chưa hoàn thành?");
             }
         });
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 String[] options = {"Xóa", "Sửa"};
                 builder.setItems(options, new DialogInterface.OnClickListener() {
@@ -105,7 +106,7 @@ public class AdapterDetailsPlan extends ArrayAdapter<contentPlan> {
                             String[] op = {"Chắc Chắn Xóa", "Hủy Bỏ"};
                             builder1.setItems(op, new DialogInterface.OnClickListener() {
                                 @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
+                                public void onClick(DialogInterface dialogInterface, final int i) {
                                     if(i == 0){
                                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                                         String id_content = contentPlan.getId_content();
@@ -116,6 +117,9 @@ public class AdapterDetailsPlan extends ArrayAdapter<contentPlan> {
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
+                                                        Toast.makeText(context, "Xóa kế hoạch thành công", Toast.LENGTH_SHORT).show();
+//                                                        Intent intent = new Intent(context,PlanDetails.class );
+//                                                        context.startActivity(intent);
                                                     }
                                                 })
                                                 .addOnFailureListener(new OnFailureListener() {
@@ -128,7 +132,7 @@ public class AdapterDetailsPlan extends ArrayAdapter<contentPlan> {
                                     
                                 }
                             }).create().show();
-                        }
+                        }else
                         if(i == 1){
                             String id_content = contentPlan.getId_content();
                             String work = contentPlan.getWork();
@@ -136,13 +140,13 @@ public class AdapterDetailsPlan extends ArrayAdapter<contentPlan> {
                             String status = contentPlan.getStatus();
                             String id_plan = contentPlan.getId_plan();
 
+                            Log.d("check", "Check = " + id_plan + "  " + id_content);
                             Intent intent = new Intent(context, EditDetailsPlan.class);
                             intent.putExtra("id_content", id_content);
                             intent.putExtra("work", work);
                             intent.putExtra("time", time);
                             intent.putExtra("status", status);
                             intent.putExtra("id", id_plan);
-
                             context.startActivity(intent);
                         }
                     }
